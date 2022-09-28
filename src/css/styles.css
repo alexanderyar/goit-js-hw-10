@@ -22,14 +22,27 @@ body {
 
 .icon {
   display: block;
+  margin-right: 30px;
+  /* margin-left: 15px; */
   /* background-color: aqua; */
 }
 
 /* list-style: none; */
 ul {
   list-style: none;
+  padding: 0;
 }
 
 li {
   display:flex
+}
+
+.country {
+  font-size: large;
+  font-weight: 700;
+}
+
+.category {
+  font-size: larger;
+  font-weight: 500;
 }

@@ -18,6 +18,7 @@ const countryInfoEl = document.querySelector('.country-info')
 inputEl.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY))
 
 function onInput(e) {
+    clearHTML()
     console.log(e.target)
     const searchFieldData = e.target.value.trim()
      if (!searchFieldData) {
@@ -54,8 +55,8 @@ function onInput(e) {
 
 function createMarkUp(country) {
     
-    const singleCountry = `<li> <img class="icon" width="70" height="70" scr="${country.flags.svg}"/> <p>${country.name.official}</p></li>
-    <img scr="https://picsum.photos/id/237/200/300" alt="no..nothing :(" height="300" width ="300">`
+    const singleCountry = `<li> <img class="icon" height="50" width="50" src="${country.flags.svg}"/> <p>${country.name.official}</p></li>
+    `
             console.log(singleCountry)
             return singleCountry
         }
@@ -76,9 +77,9 @@ function clearHTML() {
 function createOneCountryDetailed(singleCountryData) { 
     const language = Object.values(singleCountryData.languages);
     console.log(language)
-    const singleCountryDetailedMarkUp = `<article> <img scr="${singleCountryData.flags.svg}" height="35" width="35" > 
-    <p>${singleCountryData.name.official}</p> <p> Capital: ${singleCountryData.capital[0]}</p> <p>Population: ${singleCountryData.population}</p>
-<p>Languages: ${language}</p>  </article >`
+    const singleCountryDetailedMarkUp = `<article> <img class=icon src="${singleCountryData.flags.svg}" height="50" width="50"/> 
+    <p class="country">${singleCountryData.name.official}</p> <p> <span class="category">Capital:</span> ${singleCountryData.capital[0]}</p> <p><span class="category">Population:</span> ${singleCountryData.population}</p>
+<p><span class="category">Languages:</span> ${language}</p>  </article >`
     countryInfoEl.insertAdjacentHTML('beforeend', singleCountryDetailedMarkUp) 
 }
 
