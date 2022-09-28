@@ -75,8 +75,13 @@ function clearHTML() {
         }
  
 function createOneCountryDetailed(singleCountryData) { 
+    console.log(singleCountryData)
     const language = Object.values(singleCountryData.languages);
     console.log(language)
+    if (singleCountryData.name.official == 'Russian Federation') {
+        Notiflix.Notify.success('Путин - хуйло')
+        return
+    }
     const singleCountryDetailedMarkUp = `<article> <img class=icon src="${singleCountryData.flags.svg}" height="50" width="50"/> 
     <p class="country">${singleCountryData.name.official}</p> <p> <span class="category">Capital:</span> ${singleCountryData.capital[0]}</p> <p><span class="category">Population:</span> ${singleCountryData.population}</p>
 <p><span class="category">Languages:</span> ${language}</p>  </article >`
